@@ -1,0 +1,320 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="HeaderFooter.master.cs" Inherits="HeaderFooter" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta name="description" content="SSN Unite is the official alumni Portal for SSN institutions." />
+<meta name="keywords" content="SSN, TRIBUTE, UNITE,Unite,SSN Unite,SSN TRIBUTE, SSN College,Alumini Association,SSN Institute" />
+<meta name="Author" content="Vivek, Palani Ramkumar"/>
+
+<!--[if !IE]>
+<script type="text/javascript">
+alert('Update your browser version to IE 9. Thank You!!!');
+</script>
+<![endif]-->
+    <title>Official SSN Alumni Portal</title>
+      <link href="css/ui-progress-bar.css" type="text/css" rel="Stylesheet" media="all" />
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="all"/>
+	<link rel="stylesheet" href="css/grid.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/loginmenu.css" type="text/css" media="all"/>
+	<link rel="stylesheet" href="css/jquery-ui-1.8.5.custom.css" type="text/css" media="all"/>
+
+     <script type="text/javascript" src="Scripts/jquery-1.4.2.min.js" ></script>
+     <script type="text/javascript" src="Scripts/jquery-1.6.2.min.js"></script>
+         <script type="text/javascript" src="Scripts/jquery-1.8.3.js"></script>
+    <script src="Scripts/jquery-ui-1.9.2.js" type="text/javascript"></script>
+   <script type="text/javascript" src="Scripts/jquery.cycle.all.js"></script>
+   <script type="text/javascript" src="Scripts/jquery-ui-1.8.5.custom.min.js"></script>
+   <script type="text/javascript" src="Scripts/HoverEffect.js" />          
+    <script type="text/javascript" src="Scripts/showhidediv.js"></script>
+      <script type="text/javascript" src="Scripts/AlertBox.js" ></script>
+    <script type="text/javascript" src="Scripts/gallery.js"></script>
+     <script type="text/javascript" language="javascript">
+         window.onload = function () {
+             var divTest = document.getElementById('loginBox');
+             var hdnMaintainState = document.getElementById('loginbox_value');
+             divTest.style.display = hdnMaintainState.value;
+         };
+        
+         function Message(msg) {
+             var id = 'AlertBox1';
+             var left = 400, top = 200;
+             document.getElementById(id).style.left = left + 'px';
+             document.getElementById(id).style.top = top + 'px';
+             document.getElementById(id).style.display = 'block';
+             document.getElementById('msg1').innerHTML = msg;
+
+             var sid = 'overlayhf';
+             document.getElementById(sid).style.display = 'block';
+             
+         }
+       function hideme() {
+           document.getElementById('AlertBox1').style.display = 'none';
+           var sid = 'overlayhf';
+           document.getElementById(sid).style.display = 'none';
+         }
+         function showvote() {
+             document.getElementById('votediv').style.display = 'block';
+             document.getElementById('progbar').style.display = 'none';
+         }
+
+         function show_login() {
+             document.getElementById('loginBox').style.display = "block";
+             document.getElementById('loginbox_value').value = "block";
+             document.getElementById('loginid').focus();
+         }
+         function hide_login() {
+             document.getElementById('loginBox').style.display = "none";
+             document.getElementById('loginbox_value').value = "none";
+         }
+</script>
+   <style type="text/css">
+      #divwidth
+        {
+          width: 150px;  
+        }
+        
+</style>
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
+     <!--Alert Box -->
+     <div id="overlayhf" class="overlay1" style="display:none"></div>
+  <div id="AlertBox1" class="alert">
+<p id="msg1">
+</p>  
+     <a class="close" onclick="javascript:hideme()"></a>
+</div>
+<!--Alert Box End-->
+    <header>
+		<nav>
+			<div class="container">
+           	<div class="wrapper">
+					<h1><a href="index.aspx"><strong>SSN Unite</strong></a></h1>
+					<ul id="menu1">
+						<li><a id="home" href="index.aspx">Home</a>
+                        </li>
+			            <li><a id="alumni" href="#">My Unite</a>
+                        <ul>
+                        <li><a target="_blank" href="LoginPage.aspx?urlid=fm">Forum</a></li>
+                        <li><a target="_blank" id="job" href="LoginPage.aspx?urlid=jb">Job Portal</a></li>
+                        <li><a href="AboutSSNAlumni.aspx" >About SSNAA</a></li>
+                        <li><a  href="LoginPage.aspx?urlid=sh">Search</a></li>
+                        </ul>
+                        </li>
+						<li><a id="contact" href="#">Contact Us</a>
+                        <ul>
+                        <li><a href="AlumniOfficeBearers.aspx">Office Bearer</a></li>
+                         <li><a href="ContactUs.aspx">Reach Us</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="Scholarship.aspx" id="scholar">Scholarship</a>
+                        </li>
+            	<li><a  href="#" id="loginButton" onclick="show_login()"><span>Login</span></a></li>
+					</ul>
+              </div><input id="redirectmenu" type="hidden" value="" runat="server"/>
+			</div><input id="Hidden1" type="hidden" value="none"  runat="server"/>
+      </nav>
+      <section class="adv-content">
+			<div class="container">
+				<ul class="breadcrumbs">
+					<li>
+                      <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="Index">
+                </asp:SiteMapDataSource>
+                <asp:SiteMapPath ID="SiteMapPath1" runat="server" PathDirection="RootToCurrent" 
+                PathSeparator=" > "  CssClass="siteMapPath" PathSeparatorStyle-CssClass="pathcss">
+                </asp:SiteMapPath>
+      </li>
+      
+      		</ul>
+			</div>
+		</section>
+        <div class="ic">More Website Templates at TemplateMonster.com!</div>
+   </header>
+            <!-- Login Starts Here -->
+                <input id="loginbox_value" type="hidden" value="none" runat="server" />
+        <div id="loginBox">                
+    <div id="loginForm">
+           <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                        <fieldset id="body">
+                        <asp:Panel ID="Panel1" runat="server" DefaultButton="login">
+                            <fieldset>
+                                <label for="email">Username<img src="images/x.png" onclick="hide_login()" style="float:right;margin-right:-12px;margin-top:-12px;cursor:pointer;" /></label>
+                                <asp:TextBox ID="loginid" CssClass="userimg" runat="server" placeholder="Username"></asp:TextBox>
+                                <asp:RequiredFieldValidator ValidationGroup="log_in" Width="10" ID="RequiredFieldValidator1" Font-Size="16px" runat="server" ErrorMessage="*" ControlToValidate="loginid" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                            </fieldset>
+                            <fieldset>
+                                <label for="password">Password</label>
+                                  <asp:TextBox ID="loginpwd" runat="server" CssClass="passimg" TextMode="Password" 
+                        placeholder="Password"></asp:TextBox>
+               <asp:RequiredFieldValidator Display="Dynamic" Width="10" ID="RequiredFieldValidator2" ValidationGroup="log_in" Font-Size="16px" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="loginpwd"></asp:RequiredFieldValidator>
+                            <span id="login_err" style="display:none" runat="server"></span>
+                            </fieldset>
+                            </asp:Panel>
+                            <asp:Button ID="login" runat="server" Text="Sign in" ValidationGroup="log_in" OnClick="login_Click" />
+                        </fieldset>
+                        <span>
+                        <a href="RegisterForm.aspx">Sign Up</a>&nbsp;&nbsp;&nbsp;
+                        <a href="ForgotPassword.aspx">Forgot your password?</a>
+                        </span>
+                        </ContentTemplate>
+                        <Triggers>
+                        <asp:PostBackTrigger ControlID="login" />
+                    </Triggers>
+                        </asp:UpdatePanel>
+                    </div>
+                </div>
+       
+            <!-- Login Ends Here -->
+      <!--Alert Box -->
+      <div id="overlaya" class="overlay1" style="display:none"></div>
+       <div id="AlertBox" class="alert">
+<p id="errmsg1"></p>  
+ <input id="reurl" runat="server" type="hidden" value="1" />   
+           <input id="Button1" class="submitbutton" type="button" value="OK" onclick="javascript:HideMe()" />
+</div>
+<!--Alert Box End-->
+
+    <div>
+                
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+         		
+        </asp:ContentPlaceHolder>
+    </div>
+    <section id="content">
+		<div class="bottom">
+			<div class="container">
+				<div class="wrapper">
+					<div class="grid3 first">
+						<h3>External Links</h3>
+						<ul class="list1">
+							<li><a href="http://www.ssn.edu.in/" target="_blank" >SSN CE</a></li>
+							<li><a href="http://www.somca.ssn.edu.in/" target="_blank">SSN SOMCA</a></li>
+							<li><a href="http://sase.ssn.edu.in/" target="_blank">SSN SASE</a></li>
+                            <li><a href="http://www.ssnalumni.com/" target="_blank">USA Alumni Chapter</a></li>
+						</ul>
+					</div>
+                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <div class="grid3" runat="server" id="votediv">
+						<h3>Have your say</h3>
+						<ul>
+								<li><asp:Label ID="pollquest" runat="server" Text=""></asp:Label> </li>
+                                <li><asp:RadioButtonList ID="pollopt" runat="server" RepeatLayout="Flow" >
+              </asp:RadioButtonList></li>
+                                
+                        </ul>
+                        <div class="alignright">
+										<asp:LinkButton CssClass="alt" Font-Underline="false" ID="vote" runat="server" OnClick="vote_Click1" PostBackUrl="#progbar"  
+                                            CausesValidation="False">Vote</asp:LinkButton>
+									</div>
+                                    <asp:Label ID="pollerr" runat="server" Text="Voting Poll Currently Closed..." Visible="false"></asp:Label>
+                                    </div>
+                                    </ContentTemplate>
+          <Triggers><asp:AsyncPostBackTrigger ControlID="vote" EventName="Click" /></Triggers>
+          </asp:UpdatePanel>
+          <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+          <ContentTemplate>
+                                    <div class="grid3" id="progbar" style="display:none" runat="server">
+                                    <h3>Poll Results</h3>
+                                    <%Response.Write(ans1); %> - <%Response.Write(per1); %>
+                                           <div class="ui-progress-bar ui-container" >
+                                           <div class="ui-progress" id="percent1" runat="server"> </div>
+                                           
+                                        </div>
+          <br />
+          <%Response.Write(ans2); %> - <%Response.Write(per2); %>
+          <div class="ui-progress-bar ui-container" >
+            <div class="ui-progress" id="percent2" runat="server" > </div>
+          </div>
+          <br />
+          <%Response.Write(ans3); %> - <%Response.Write(per3); %>
+          <div class="ui-progress-bar ui-container" >
+            <div class="ui-progress" id="percent3" runat="server"> </div>
+          </div>
+          <br />
+          <%Response.Write(ans4); %> - <%Response.Write(per4); %>
+          <div class="ui-progress-bar ui-container" >
+            <div class="ui-progress" id="percent4" runat="server"> </div>
+          </div>
+          <br />
+           <div class="alignright">
+										<a href="#votediv" class="alt" style="text-decoration:none;" onclick="showvote()"><< Back</a>
+									</div>
+
+          </div>
+          </ContentTemplate>
+          </asp:UpdatePanel>
+                                   	<div class="grid3">
+						<h3>Community Stat</h3>
+						<table class="list2">
+                        	<tr><td></td></tr>
+							<tr><td>Registerd Users</td><td>:</td><td><%=usercnt %> </td></tr>
+                            <tr><td>Forum Threads</td><td>:</td><td><%=topcnt %></td></tr>
+							<tr><td>Forum Replies</td><td>:</td><td><%=repcnt %></td></tr>
+                            <tr><td>Recent Visitor</td><td>:</td><td><a class="alt" id="visitlink" runat="server" style="text-decoration:none;"><%=visitor %></a></td></tr>
+						</table>	
+						
+					</div>
+					<div class="grid3">
+						<div id="datepicker"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="wrapper">
+				<div class="copy">SSN Alumni (c) <%=DateTime.Now.Year %>|	<a href="">Privacy policy</a> | 
+				You are the visitor number ,<strong style="color:#E83709"><%=visitcnt %></strong>
+    </div>
+				<address class="phone">
+					We're glad to help you. Please email us at <strong><a href="mailto:alumniofficer@ssn.edu.in"> alumniofficer@ssn.edu.in</a></strong>
+				</address>
+
+			</div>
+		</div>
+	</footer>
+   
+     <script type="text/javascript">
+         
+         $(document).ready(function () {
+             $('.pics').cycle({
+                 fx: 'toss',
+                 next: '#next',
+                 prev: '#prev'
+             });
+
+             // Datepicker
+             $('#datepicker').datepicker({
+                 inline: true
+             });
+    });       
+        </script>
+    </form>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-35033623-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+'.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+</script>
+</body>
+</html>
