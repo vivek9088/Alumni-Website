@@ -1,0 +1,261 @@
+﻿<%@ Master Language="C#" EnableViewState="true" ViewStateMode="Enabled" MasterPageFile="~/AlumniPages/AlumniHeadFoot.master" AutoEventWireup="true" CodeFile="Alumni.master.cs" Inherits="AlumniPages_Alumni" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link type="text/css" href="../css/demo1.css" rel="stylesheet" media="screen" />
+      <link href="../css/msgstyle.css" type="text/css" rel="Stylesheet" media="all" />
+       
+    <script type="text/javascript">
+        $(function () {
+            $('#forum-feeds').vTicker({
+                speed: 500,
+                pause: 3000,
+                animation: 'fade',
+                mousePause: false,
+                showItems: 3
+            });
+        });
+
+    </script>
+    <style type="text/css">
+       
+.a-color a{color:Navy;}        
+.modalBackground 
+{
+ background-color:Gray;filter:alpha(opacity=70);opacity:0.7;
+} 
+.cfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.cfix { display: inline-block; }
+#sec {
+    width:400px;
+    position: relative;
+    float: left;
+}
+
+
+
+ </style>
+
+        <script type="text/javascript">
+            function showme() {
+                document.getElementById('showedit').style.display = "block";
+            }
+            function hideme1() {
+                document.getElementById('showedit').style.display = "none";
+            }
+   
+            function openmsgDialog() {
+                $('#wrappermsg').css('display', 'block');
+                $('#boxpopup').css('display', 'block');
+                $('#overlay').fadeIn('fast');
+                $('#boxpopup').animate({ 'left': '30%' }, 500);
+             
+            }
+            function closemsgDialog(prospectElementID) {
+                $(function ($) {
+                    $(document).ready(function () {
+                        $('#' + prospectElementID).css('position', 'absolute');
+                        $('#' + prospectElementID).animate({ 'left': '-100%' }, 500, function () {
+                            $('#' + prospectElementID).css('position', 'fixed');
+                            $('#' + prospectElementID).css('left', '100%');
+                            $('#overlay').fadeOut('fast');
+                            $('#wrappermsg').css('display', 'none');
+                
+                        });
+                    });
+                });
+            }
+   
+        </script>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder> 
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+   
+    <div class="top">
+			<div class="container">
+				<div class="clearfix">
+    <div class="grid3 first">
+						<h2 style="font-size:25px">Welcome 
+                            <asp:Label ID="uname" runat="server" Text=""></asp:Label>,</h2>
+    
+						<section class="images"><figure><img id="userimg" height="100" width="120" runat="server" src="../images/nophoto.jpg" alt="No Image to Display"/></figure></section>
+                         <br /><br />
+                        <br />  
+						<br />
+       <br />
+                        <br /><br />
+        <a href="#" id="editclick" onclick="showme()">Change Picture</a>&nbsp;&nbsp;
+        <asp:LinkButton ID="delpic" runat="server" Visible="False" CausesValidation="False" onclick="delpic_Click">Remove Picture</asp:LinkButton>
+        <br /><br />
+        <div id="showedit" style="display:none;background:lightcyan">
+          
+          <asp:FileUpload ID="FileUpload1" runat="server"/>
+            <br />
+            <asp:Label ID="photo" runat="server" Text=""></asp:Label>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Only Png or Jpeg images allowed" ControlToValidate="FileUpload1" ForeColor="Red" SetFocusOnError="true" ValidationExpression="^([0-9a-zA-Z_\-~ :\\])+(.jpg|.JPG|.jpeg|.JPEG|.png|.PNG)$"></asp:RegularExpressionValidator>
+           <br /> <asp:Button ID="editimage" runat="server" Text="Upload" CausesValidation="false" onclick="editimage_Click" />
+          &nbsp;&nbsp;&nbsp;<a href="#" onclick="hideme1()" style="text-decoration:none;">[X] Close</a>
+        </div>
+                         <table>
+                         <tr><td><strong>Total Posts  </strong></td><td>:</td><td>
+                             <asp:Label ID="topcnt" runat="server" Text=""></asp:Label></td>
+                         </tr>
+                         <tr>
+                         <td><strong>Post Replies</strong> </td><td>:</td><td>
+                             <asp:Label ID="repcnt" runat="server" Text=""></asp:Label></td>
+                         </tr>
+                         </table>
+                         <br />
+                          
+						<p id="plinks"><img id="usrimg" runat="server" src="../images/editm.png" style="height: 16px; width: 16px" />&nbsp;&nbsp;
+                        <a href="AlumniProfile.aspx">Edit Profile</a><br/><img src="../images/email.jpg" style="height: 16px; width: 16px" />
+                        &nbsp;&nbsp;<a href="Email.aspx">Email</a><br /><img src="../images/sndreq.png" style="height: 16px; width: 16px" />
+                        &nbsp;&nbsp;<a id="invite" href="#">Invite Friend</a><br /><img src="../images/password.png" style="height: 16px; width: 16px" />
+                        &nbsp;&nbsp;<a href="ChangePassword.aspx">Change Password</a><br /><img src="../images/birthday1.png" style="height: 16px; width: 16px" />
+                        &nbsp;&nbsp;<a href="BirthdayList.aspx">Alumni Birthday</a><br /><img src="../images/sa1.png" style="height: 16px; width: 16px" />
+                        &nbsp;&nbsp;<a href="../Search Alumni/SearchAlumni.aspx">Search Alumni</a><br /><img src="../images/msg.png" style="height: 16px; width: 16px" />
+                        &nbsp;&nbsp;<a href="#" onclick="openmsgDialog()">Messages</a>
+                        </p>
+                <br />
+                       <h2 style="font-size:23px">My BatchMates</h2>
+                         <p>
+                          <asp:Label ID="batchmsg" runat="server" Text="No Batchmates Found" Visible="false"></asp:Label>
+						   <section class="images" id="sectiontab1" runat="server" style="overflow-y:scroll;height:100px;">
+                        <table id="batchmate" runat="server"></table>
+                            </section>
+                            </p>
+                                            
+       			</div>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </div><br />
+    </div>
+    </div>
+    <div class="middle">
+			<div class="container">
+				<div class="clearfix">
+					<div class="grid3 first">
+                    <h2 style="font-size:23px">My Buddies</h2>
+						 <p>
+                             <asp:Label ID="buddymsg" runat="server" Visible="false" Text="No Buddies Found"></asp:Label>
+                           <section class="images" id="sectiontab" runat="server" style="overflow-y:scroll;height:200px">
+<table id="fri_list" runat="server"></table>                          
+						  </section>
+                            </p>
+					</div>
+					<div class="grid9">
+						
+					        <h2 style="font-size:23px">Updates</h2>
+                        <div style="border: #000000 1px solid; float: left; background-color: #339999; color: #FFFFFF;">
+                            <center style="font: 13px arial, sans-serif; font-weight: bold;">
+                                Forum Feeds</center>
+                            <asp:Label ID="upderr" Visible="false" runat="server" Text="No Forum Updates Available"></asp:Label>
+                            <div id="forumdiv" runat="server" style="border: #339999 2px solid; margin-left: 2px; background-color: #F0F0F0;">
+                                <div id="forum-feeds" class="a-color">
+                                    <ul id="flist" runat="server">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div style="border: #000000 1px solid;float:left; width: 220px; height: 250px; background-color: #339999;
+                            color: #FFFFFF;margin-left:20px">
+                            <center style="font: 13px arial, sans-serif; font-weight: bold;">
+                                News/Events Feeds</center>
+                            <asp:Label ID="newserr" Visible="false" runat="server" Text="No News Updates Available"></asp:Label>
+                            <div id="newsevtdiv" class="a-color" style="border: #339999 2px solid; width: 211px; height: 225px;margin-left: 2px; background-color: #F0F0F0;">
+                                <marquee id="marquee2" runat="server" behavior="scroll" direction="up" scrolldelay="2" scrollamount="2" onmouseover="this.stop()"
+                                    onmouseout="this.start()" style="padding-left: 10px"></marquee>
+                            </div>
+                        </div>
+         			</div>
+				</div>
+			</div>
+		</div>
+       
+     <!--This popup box is used to display messages -->
+  <div id="wrappermsg" style="display:none;">
+<div id="overlay" class="overlaymsg"></div>
+<div id="boxpopup" class="boxmsg">
+	<a onclick="javascript:closemsgDialog('boxpopup')" class="boxclosemsg"></a>
+ 	<div id="detboxmsg" runat="server" style="padding-right:10px;overflow-y:scroll;height:inherit;">
+    </div>
+</div>
+</div>
+		
+		<!-- popup modal content -->
+		
+	 <div id="popupContainer" class="hidden">
+		<a id="close" class="hidden" title="close popup"></a>
+		<h1 style="font-size:26px;">Invite a Friend</h1>
+        <p style="color:Gray;">You can use this feature to 
+						invite an SSN friend to this&nbsp; Alumni site. Just 
+						enter your friend's name and email id below and click on 
+						submit and an email containing the SSN Alumni&nbsp; link 
+						will be sent to your friend</p>
+			<p style="color:Black;">Your Friend Details</p>
+		<p id="contactArea">
+            &nbsp;<asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+        	<table cellpadding="5">
+            <tr>
+            <td style="color:maroon; margin-top:10px;">Friend's Name</td> <td style="color:Black;">:</td>
+             <td><asp:TextBox ID="fri_name" runat="server"></asp:TextBox>
+             </td>
+             </tr>
+             <tr><td></td><td></td>
+             <td>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter a name" ControlToValidate="fri_name" ForeColor="Red" Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Only Alphabets and SemiColon Allowed" Display="Dynamic" ForeColor="Red" SetFocusOnError="true" ControlToValidate="fri_name" ValidationExpression="^[\sa-zA-Z;]*"></asp:RegularExpressionValidator>
+            </td>
+            </tr>
+            <tr>
+            <td style="color:maroon;margin-top:10px">Friend's Email-Id</td><td style="color:Black;">:</td>
+            <td><asp:TextBox ID="fri_mail" runat="server"></asp:TextBox> 
+            </td>
+             </tr>
+             <tr><td></td><td></td>
+             <td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter a mail-id" ForeColor="Red" SetFocusOnError="true" Display="Dynamic" ControlToValidate="fri_mail"></asp:RequiredFieldValidator>
+            </td>
+            </tr>
+            <tr><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td><asp:Label ID="errmsg" ForeColor="Red" runat="server" Text=""></asp:Label>  </td></tr>
+            </table>
+     	</p><br />
+        <div id="contact-container" style="width:60px;padding-left:10px">
+        <div class="contact-button"><asp:LinkButton ID="send" Font-Underline="false" ForeColor="White" 
+                    runat="server" onclick="send_Click">Send</asp:LinkButton></div>
+        </div>
+            </ContentTemplate>
+            </asp:UpdatePanel>
+	      
+	</div>
+	<div id="overlayEffect">
+    </div>
+  <!--end popup content--> 
+     <!--Alert Box -->
+     <div id="overlaya" class="overlay1" style="display:none"></div>
+       <div id="AlertBox" class="alert">
+<p id="errmsg1"></p>  
+ <input id="reurl" runat="server" type="hidden" value="1" />   
+           <input id="Button1" class="button" type="button" value="OK" onclick="javascript:HideMe()" />
+</div>
+<!--Alert Box End-->
+          <script src="../Scripts/popupscript.js" type="text/javascript"></script>
+                   <script src="../Scripts/requestpopup.js" type="text/javascript"></script>
+
+</asp:Content>
+

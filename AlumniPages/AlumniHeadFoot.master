@@ -1,0 +1,269 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AlumniHeadFoot.master.cs" Inherits="AlumniPages_AlumniHeadFoot" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta name="description" content="SSN Unite is the official alumni Portal for SSN institutions." />
+<meta name="keywords" content="SSN, TRIBUTE, UNITE,Unite,SSN Unite,SSN TRIBUTE, SSN College,Alumini Association,SSN Institute" />
+<meta name="Author" content="Vivek, Palani Ramkumar"/>
+    <title>Alumni HomePage</title>
+    <link href="../css/ui-progress-bar.css" type="text/css" rel="Stylesheet" media="all" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="all"/>
+	<link rel="stylesheet" href="../css/grid.css" type="text/css" media="all"/>
+	<link rel="stylesheet" href="../css/style.css" type="text/css" media="all"/>
+	<link rel="stylesheet" href="../css/jquery-ui-1.8.5.custom.css" type="text/css" media="all"/>
+    
+    <script type="text/javascript" src="../Scripts/jquery.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-1.4.2.min.js" ></script>
+    <script type="text/javascript" src="../Scripts/jquery-1.5.js"></script>
+    <script src="../Scripts/jquery-1.7.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jquery-1.7.1.min.js"></script>       	                   
+    <script type="text/javascript" src="../Scripts/jquery-ui-1.8.5.custom.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.cycle.all.js"></script>
+    <script type="text/javascript" src="../Scripts/gallery.js"></script>
+    <script type="text/javascript" src="../Scripts/HoverEffect.js"></script>
+    <script type="text/javascript" src="../Scripts/AlertBox.js" ></script>
+    <script src="../Scripts/jquery.akordeon.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jquery.vticker-min.js"></script>
+  
+
+     <script type="text/javascript" language="javascript">
+         function Message(msg) {
+             var id = 'AlertBox1';
+             var left = 400, top = 200;
+             document.getElementById(id).style.left = left + 'px';
+             document.getElementById(id).style.top = top + 'px';
+             document.getElementById(id).style.display = 'block';
+             document.getElementById('msg1').innerHTML = msg;
+
+             var sid = 'overlayhf';
+             document.getElementById(sid).style.display = 'block';
+         }
+         function hideme() {
+             document.getElementById('AlertBox1').style.display = 'none';
+
+             var sid = 'overlayhf';
+             document.getElementById(sid).style.display = 'none';
+         }
+         function showvote() {
+             document.getElementById('votediv').style.display = 'block';
+             document.getElementById('progbar').style.display = 'none';
+         }
+</script>
+   <style type="text/css">
+      #divwidth
+        {
+          width: 150px;  
+        }
+      
+</style>
+
+	<asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <!--Alert Box -->
+    <div id="overlayhf" class="overlay1" style="display:none"></div>
+       <div id="AlertBox1" class="alert">
+<p id="msg1"></p>  
+     <a class="close" onclick="javascript:hideme()"></a>
+</div>
+<!--Alert Box End-->
+    <header>
+		<nav>
+			<div class="container">
+				<div class="wrapper">
+					<h1><a href="../index.aspx"><strong>SSN Unite</strong></a></h1>
+                   <ul>
+						<li><a href="AlumniHome.aspx">Home</a></li>
+			            <li><a href="AlumniProfHome.aspx" >My Profile</a></li>
+                        <li><a href="#">My Unite</a>
+                        <ul>
+                        <li><a target="_blank" href="#" id="foruml" runat="server">Forum</a></li>
+						<li><a href="#" target="_blank" id="jobl" runat="server">Job Portal</a> </li>
+						<li><a href="AboutSSNAA.aspx">About SSNAA</a></li>
+                        <li><a href="News.aspx">News</a></li>
+                         <li><a  href="RequestChapter.aspx" >New Chapter</a></li>
+                        <li><a href="../Search Alumni/SearchAlumni.aspx">Search alumni</a></li>
+                        <li><a  href="EventGallery.aspx">Gallery</a></li>
+                        </ul>
+                          </li>
+                        <li><a href="#">Contact Us</a>
+                        <ul>
+                        <li><a href="OfficeBearer.aspx">Office Bearer</a></li>
+                        <li><a href="ReachUs.aspx">Reach Us</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="#">Scholarship</a>
+                        <ul>
+                       <li><a href="Scholarships.aspx" id="scholar">Scholarship</a></li>
+                        </ul>
+                        </li>
+                      <li><a href="../index.aspx">Log Out</a></li>
+                     </ul>
+				</div>
+			</div><asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
+		</nav>
+        <section class="adv-content">
+			<div class="container">
+				<ul class="breadcrumbs">
+					<li>
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" 
+            SiteMapProvider="Alumni"></asp:SiteMapDataSource>
+        <asp:SiteMapPath ID="SiteMapPath1" runat="server" PathDirection="RootToCurrent"  
+                PathSeparator=" > "  CssClass="siteMapPath" 
+            PathSeparatorStyle-CssClass="pathcss" SiteMapProvider="Alumni"></asp:SiteMapPath>
+     
+                    </li>
+      		</ul>
+			</div>
+		</section>
+      
+		<div class="ic">More Website Templates at TemplateMonster.com!</div>
+	</header>
+      <section id="content">
+		<!--Alert Box -->
+        <div id="overlaya" class="overlay1" style="display:none"></div>
+       <div id="AlertBox" class="alert">
+<p id="errmsg1"></p>  
+ <input id="reurl" runat="server" type="hidden" value="1" />   
+           <input id="Button1" class="submitbutton" type="button" value="OK" onclick="javascript:HideMe()" />
+</div>
+<!--Alert Box End-->
+
+    <div>
+               		
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    
+    <div class="bottom">
+			<div class="container">
+				<div class="wrapper">
+                 <div class="grid3 first">
+						<h3>External Links</h3>
+						<ul class="list1">
+							<li><a href="http://www.ssn.edu.in/" target="_blank" >SSN CE</a></li>
+							<li><a href="http://www.somca.ssn.edu.in/" target="_blank">SSN SOMCA</a></li>
+							<li><a href="http://sase.ssn.edu.in/" target="_blank">SSN SASE</a></li>
+                            <li><a href="http://www.ssnalumni.com/" target="_blank">USA Alumni Chapter</a></li>
+						</ul>
+					</div>	
+					<asp:UpdatePanel ID="UpdatePanel2" runat="server">
+<ContentTemplate>
+                    <div class="grid3" runat="server" id="votediv">
+						<h3>Have your say!!!</h3>
+						<ul class="list2">
+								<li><asp:Label ID="pollquest" runat="server" Text=""></asp:Label> </li>
+                                <li><asp:RadioButtonList ID="pollopt" runat="server" RepeatLayout="Flow">
+              </asp:RadioButtonList></li>
+                                
+                        </ul>
+                        <div class="alignright">
+										<asp:LinkButton CssClass="alt" ID="vote" runat="server" OnClick="vote_Click1" PostBackUrl="#progbar" Font-Underline="false" 
+                                            CausesValidation="False">Vote</asp:LinkButton>
+									</div>
+<asp:Label ID="pollerr" runat="server" Text="Voting Poll Currently Closed..." Visible="false"></asp:Label>
+                                    </div>
+                                    </ContentTemplate>
+          <Triggers><asp:AsyncPostBackTrigger ControlID="vote" EventName="Click" /></Triggers>
+          </asp:UpdatePanel>
+          <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+          <ContentTemplate>
+                                    <div class="grid3" id="progbar" style="display:none" runat="server">
+                                    <h3>Poll Results</h3>
+                                    <%Response.Write(ans1); %> - <%Response.Write(per1); %>
+                                           <div class="ui-progress-bar ui-container" >
+                                           <div class="ui-progress" id="percent1" runat="server"> </div>
+                                           
+                                        </div>
+          <br />
+          <%Response.Write(ans2); %> - <%Response.Write(per2); %>
+          <div class="ui-progress-bar ui-container" >
+            <div class="ui-progress" id="percent2" runat="server" > </div>
+          </div>
+          <br />
+          <%Response.Write(ans3); %> - <%Response.Write(per3); %>
+          <div class="ui-progress-bar ui-container" >
+            <div class="ui-progress" id="percent3" runat="server"> </div>
+          </div>
+          <br />
+          <%Response.Write(ans4); %> - <%Response.Write(per4); %>
+          <div class="ui-progress-bar ui-container" >
+            <div class="ui-progress" id="percent4" runat="server"> </div>
+          </div>
+          <br />
+           <div class="alignright">
+ 	<a href="#votediv" class="alt" onclick="showvote()" style="text-decoration:none;"><< Back</a>
+			</div>
+          </div>
+          </ContentTemplate>
+          </asp:UpdatePanel>
+                   	<div class="grid3">
+						<h3>Community Stat</h3>
+						
+                       <table class="list2">
+                        	<tr><td></td></tr>
+							<tr><td>Registerd Users</td><td>:</td><td><%=usercnt %> </td></tr>
+                           <tr><td>Forum Threads</td><td>:</td><td><%=topcnt %></td></tr>
+							<tr><td>Forum Replies</td><td>:</td><td><%=repcnt %></td></tr>
+                            <tr><td>Recent Visitor</td><td>:</td><td><a id="vlink" runat="server" class="alt" style="text-decoration:none;"><%=visitor %></a></td></tr>
+						</table>	
+						
+					</div>
+					<div class="grid3">
+						<div id="datepicker"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			
+<div class="wrapper">
+<div class="copy">SSN Alumni (c) <%=DateTime.Now.Year %>	|	<a href="">Privacy policy</a> | <a href="">
+				You are the visitor number ,&nbsp;</a><strong style="color:#E83709"><%=visitcnt %></strong>
+    </div>
+				<address class="phone">
+				We're glad to help you. Please email&nbsp;&nbsp;<strong><a href="mailto:alumniofficer@ssn.edu.in">alumniofficer@ssn.edu.in</a></strong>
+				</address>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	       
+	        // Datepicker
+	        $('#datepicker').datepicker({
+	            inline: true
+	        });
+
+	    });
+	</script>
+     <script type="text/javascript" src="../Scripts/accordionmenu.js"></script>       	
+
+    </form>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-35033623-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+'.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+</script>
+</body>
+</html>
