@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="AlumniPages/AlumniHome.aspx" title="Home" >
+      
+      <siteMapNode url="AlumniPages/AlumniProfHome.aspx" title="Profile"  >
+        <siteMapNode url="AlumniPages/AlumniProfile.aspx" title="Edit Profile"/>
+        <siteMapNode url="AlumniPages/Email.aspx" title="Email"/>
+        <siteMapNode url="AlumniPages/BirthdayList.aspx" title="Alumni Birthday"/>
+        <siteMapNode url="Search Alumni/SearchAlumni.aspx" title="Search Alumni"/>
+      </siteMapNode>
+
+      <siteMapNode url="" title="My Unite" >
+        <siteMapNode url="http://ssnunite.com/peopletalk" title="Forum"  />
+        <siteMapNode url="http://ssnunite.com/job" title="Job Portal" />
+        <siteMapNode url="AlumniPages/AboutSSNAA.aspx" title="About SSNAA"  />
+        <siteMapNode url="AlumniPages/News.aspx" title="News" />
+        <siteMapNode url="AlumniPages/RequestChapter.aspx" title="New Chapter"/>
+        <siteMapNode url="../Search Alumni/SearchAlumni.aspx" title="Search Alumni"  />
+        <siteMapNode url="AlumniPages/EventGallery.aspx" title="News"  />
+      </siteMapNode>
+
+      <siteMapNode url="" title="Contact Us">
+        <siteMapNode url="AlumniPages/ReachUs.aspx" title="Reach Us"  />
+        <siteMapNode url="AlumniPages/OfficeBearer.aspx" title="Office Bearers"  />
+      </siteMapNode>
+
+      <siteMapNode url="Scholarship.aspx" title="Scholarship">
+      </siteMapNode>
+      
+    </siteMapNode>
+</siteMap>
