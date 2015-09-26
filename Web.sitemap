@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="index.aspx" title="Home">
+
+    <siteMapNode url="" title="My Unite">
+      <siteMapNode url="LoginPage.aspx?urlid=fm" title="Forum"/>
+      <siteMapNode url="LoginPage.aspx?urlid=jb" title="Job Portal"/>
+      <siteMapNode url="AboutSSNAlumni.aspx" title="About SSNAA"/>
+      <siteMapNode url="LoginPage.aspx?urlid=sh" title="Search" />
+    </siteMapNode>
+
+    <siteMapNode url="" title="Contact Us">
+      <siteMapNode url="ContactUs.aspx" title="Reach Us"/>
+      <siteMapNode url="AlumniOfficeBearers.aspx" title="Office Bearers" />
+    </siteMapNode>
+
+    <siteMapNode url="Scholarship.aspx" title="Scholarship">
+    </siteMapNode>
+    
+  </siteMapNode>
+</siteMap>
