@@ -1,0 +1,63 @@
+use ssnalumnus
+
+create table alumnireg(rowid int auto_increment primary key,fname varchar(50),lname varchar(50),sex char(10),
+dob varchar(30),email varchar(50),degree varchar(10),branch varchar(100),batch int,orgname varchar(70),desig varchar(50),
+abroad varchar(5),country varchar(40),state varchar(70),city varchar(70),number varchar(50),address varchar(200),
+login varchar(50),username varchar(50),password varchar(50),temppass varchar(50),regdate varchar(30))
+
+create table login(username varchar(30),password varchar(30),temppass varchar(50),emailid varchar(100))
+
+create table profile_hist(rowid int auto_increment primary key,profile_name varchar(50),update_date date,update_time time)
+
+create table login_hist(rowid int auto_increment primary key,login_name varchar(50),login_date date,login_time time)
+
+CREATE TABLE newsevents(
+	rowid int auto_increment primary key,
+	name varchar(50) NULL,
+	type varchar(50) NULL,
+	detail longtext NULL,
+	dttime datetime NULL,
+	venue varchar(100) NULL
+) 
+
+create table ssnintro(id int auto_increment primary key,detail varchar(200))
+
+create table jobpost(rowid int auto_increment primary key,postdate varchar(50),contperson varchar(50),
+desig varchar(100),cmpname varchar(50),contaddr longtext,city char(30),state char(30),country char(50),
+zipcode varchar(50),number int,email varchar(50),website varchar(50),desigoffer char(50),qualify char(25),
+expyrs int,loc char(40),jobprof longtext,incr varchar(20),emptype char(20),filepath varhcar(100))
+
+CREATE TABLE poll(rowid int auto_increment primary key,polldate date,pollquest longtext,opt1 varchar(100),
+opt2 varchar(100),opt3 varchar(100),opt4 varchar(100))
+
+CREATE TABLE forum_question (
+rowid int(11) NOT NULL auto_increment,
+topic varchar(255) NOT NULL default '',
+detail longtext NOT NULL,
+name varchar(65) NOT NULL default '',
+email varchar(65) NOT NULL default '',
+datetime varchar(30) NOT NULL default '',
+views int(4) NOT NULL default '0',
+reply int(4) NOT NULL default '0',
+PRIMARY KEY (`fid`)
+) 
+
+CREATE TABLE forum_answer (
+rowid int(11) NOT NULL auto_increment primary key,
+quest_id int(4) NOT NULL default '0',
+ans_id int(4) NOT NULL default '0',
+ans_name varchar(65) NOT NULL default '',
+ans_email varchar(65) NOT NULL default '',
+answer longtext NOT NULL,
+ans_datetime varchar(25) NOT NULL default '',
+) 
+
+CREATE TABLE news (
+   id int(5) auto_increment,
+   headline longtext,
+   story longtext,
+   name varchar(255),
+   email varchar(255),
+   datetime varchar(30),
+   PRIMARY KEY (id)
+);
