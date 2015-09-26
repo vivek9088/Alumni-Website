@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="../AlumniPages/AlumniHome.aspx" title="Home">
+      <siteMapNode url="" title="My Unite">
+        <siteMapNode url="Search Alumni/SearchAlumni.aspx" title="Search Alumni"/>
+      </siteMapNode>
+    </siteMapNode>
+</siteMap>
