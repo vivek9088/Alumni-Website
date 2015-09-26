@@ -1,0 +1,136 @@
+ Accountancy 
+	Auditor
+	Analyst
+	 Assistant 
+	Accountant
+Armed Forces
+	Administrative
+	Air Force
+	National Guard
+	Navy
+Admin & Secretarial 
+	Data Entry
+	Office Assistant
+	Secretary	
+Banking & Finance
+	Consultancy
+	Financial Advisor
+	Loans Advisor
+	Risk Management
+	Sales Support
+Construction 	
+	Architecture
+	Site Engineer 
+	Transportation
+	Technical Coordinator
+Education
+	Lecturer
+	Higher Education
+	Primary School 
+	Secondary School
+	Special Needs
+	Teaching Assistant
+Engineering
+	Automotive
+	Aviation 
+	Electronic 
+	Chemical
+	Oil/Gas
+Insurance
+	Broker
+	Risk Management 
+	Sales Support 
+Health Sector
+	Dentist
+	General Practice
+	Health Education
+	Nurse
+	Personal Assistant
+	Pharmaceutical 
+Hospitality & Catering
+	Kitchen Staff
+	Hotel Management
+	Housekeeper
+	Waiting & Bar Staff
+Charities & Voluntary
+	Community Support
+	Marketing & PR 
+	Fundraising 
+	Project Management 
+Leisure & Tourism
+	Airline
+	Beauty & Spa
+	Consultant
+	Health & Fitness
+	Travel Agent
+HR & Training
+	Sales Trainer
+	Training Assistant
+	Training Manager 
+IT & Telecoms
+	Hardware Engineer
+	IT Trainer
+	Software Developer
+	Software Testing
+	Systems Admin
+	Telecoms Engineer
+	Web Developer
+	Web Design
+Legal & Professional
+	Legal Secretary
+	Solicitor/Lawyer
+	Patent/Trademark
+Manufacturing
+	Quality Control
+	Production Manager
+	Supervisor
+	Skilled Operator
+Marketing & PR
+	Advertising
+	Events Management
+	Market Research
+	Marketing Analytics
+	PR Manager
+Media & Publishing
+	Editorial Jobs
+	Copywriter 
+	Music Industry
+	Media Sales 
+	Photography
+	Print Room
+	Television
+	Radio
+Pharmaceuticals
+	Sales Manager
+Sales
+	Account Manager
+	Direct Sales
+	Home Working
+	Medical Sales
+	Sales Executive
+Recruitment
+	Recruitment Consultant
+	Senior Recruitment
+Social Care
+	Care Assistant
+	Child Care/Nanny
+	Residential Support
+Scientific
+	Biotechnology
+	Bioinformatics
+	Clinical Research
+	Chemistry
+	Environmental Science
+	Laboratory Technician
+	Physics
+	Researcher
+Security
+	Parking Attendant
+	Security Consultant 
+	Security Guard
+Transport & Logistics
+	Courier
+	Driving Jobs
+	Loader/Shifter
+	Rail Jobs
+	Warehouse Supervisor
